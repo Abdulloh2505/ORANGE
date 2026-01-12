@@ -17,6 +17,15 @@ restaurantController.goHome = (req: Request, res: Response) => {
     }
 };
 
+restaurantController.getSignup = (req: Request, res: Response) => {
+    try {
+        console.log('getSignup');
+        res.send("Signup Page");
+    } catch (err) {
+        console.log("Error, goSignup:", err);
+
+    }}
+
 restaurantController.getLogin = (req: Request, res: Response) => {
     try {
         console.log('getLogin');
@@ -25,30 +34,6 @@ restaurantController.getLogin = (req: Request, res: Response) => {
         console.log("Error, goLogin:", err);
     }
 };
-
-restaurantController.getSignup = (req: Request, res: Response) => {
-    try {
-        console.log('getSignup');
-        res.send("Signup Page");
-    } catch (err) {
-        console.log("Error, goSignup:", err);
-    }}
-
-    restaurantController.processLogin = async (req: Request, res: Response) => {
-    try {
-        console.log('processLogin');
-         console.log("body:", req.body);
-          const input: LoginInput = req.body;
-
-
-            const result = await memberService.processLogin(input);
-
-
-        res.send(result);
-    } catch (err) {
-        console.log("Error, processLogin:", err);
-        res.send(err);
-        }}
 
 
       restaurantController.processSignup = async (req: Request, res: Response) => {
@@ -63,6 +48,23 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     } catch (err) {
         console.log("Error, processSignup:", err);
     }};
+
+    restaurantController.processLogin = async (req: Request, res: Response) => {
+    try {
+        console.log('processLogin');
+          const input: LoginInput = req.body;
+
+
+            const result = await memberService.processLogin(input);
+
+
+        res.send(result);
+    } catch (err) {
+        console.log("Error, processLogin:", err);
+        res.send(err);
+        }}
+
+
 
 
 
