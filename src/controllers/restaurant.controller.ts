@@ -11,7 +11,7 @@ const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
     try {
         console.log('goHome');
-        res.send("Home Page");
+        res.render("home");
     } catch (err) {
         console.log("Error, goHome:", err);
     }
@@ -20,49 +20,52 @@ restaurantController.goHome = (req: Request, res: Response) => {
 restaurantController.getSignup = (req: Request, res: Response) => {
     try {
         console.log('getSignup');
-        res.send("Signup Page");
+      res.render("signup");
     } catch (err) {
         console.log("Error, goSignup:", err);
 
-    }}
+    }
+}
 
 restaurantController.getLogin = (req: Request, res: Response) => {
     try {
         console.log('getLogin');
-        res.send("Login Page");
+          res.render("login");
     } catch (err) {
         console.log("Error, goLogin:", err);
     }
 };
 
 
-      restaurantController.processSignup = async (req: Request, res: Response) => {
+restaurantController.processSignup = async (req: Request, res: Response) => {
     try {
         console.log('processSignup');
-         const newMember: MemberInput = req.body;
-          newMember.memberType = MemberType.ORANGECAFE;
+        const newMember: MemberInput = req.body;
+        newMember.memberType = MemberType.ORANGECAFE;
         const memberService = new MemberService();
         const result = await memberService.processSignup(newMember);
         res.send(result);
 
     } catch (err) {
         console.log("Error, processSignup:", err);
-    }};
+    }
+};
 
-    restaurantController.processLogin = async (req: Request, res: Response) => {
+restaurantController.processLogin = async (req: Request, res: Response) => {
     try {
         console.log('processLogin');
-          const input: LoginInput = req.body;
+        const input: LoginInput = req.body;
 
 
-            const result = await memberService.processLogin(input);
+        const result = await memberService.processLogin(input);
 
 
         res.send(result);
     } catch (err) {
         console.log("Error, processLogin:", err);
         res.send(err);
-        }}
+    }
+}
 
 
 
