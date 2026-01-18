@@ -59,6 +59,6 @@ export interface MemberUpdateInput {
  export interface AdminRequest extends Request {
   member: Member;
   session: Session & { member: Member };
-  //file: Express.Multer.File;
-  //files: Express.Multer.File[];
+  file: Express.Multer.File;
+  files: Express.Multer.File[];
 }
