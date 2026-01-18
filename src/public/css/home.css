@@ -1,0 +1,352 @@
+/* ================================================
+   ORANGE CAFÉ - Home Page Styles
+   ================================================ */
+
+.home-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #2C1810 0%, #4A2C1A 50%, #2C1810 100%);
+  background-size: 400% 400%;
+  overflow: hidden;
+}
+
+/* Animated coffee cup background */
+.home-container::before {
+  content: '☕';
+  position: absolute;
+  font-size: 400px;
+  color: rgba(255, 140, 66, 0.08);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: coffeeRotate 20s linear infinite;
+  z-index: 1;
+}
+
+/* Floating coffee beans */
+.home-container::after {
+  content: '☕ ☕ ☕ ☕';
+  position: absolute;
+  font-size: 60px;
+  color: rgba(217, 115, 38, 0.15);
+  white-space: nowrap;
+  animation: floatingBeans 15s linear infinite;
+  bottom: 10%;
+  left: -100%;
+  z-index: 1;
+}
+
+@keyframes coffeeRotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes floatingBeans {
+  0% {
+    left: 100%;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    left: -100%;
+    transform: translateY(0);
+  }
+}
+
+/* Navigation */
+.navigation-menu {
+  position: relative;
+  z-index: 10000;
+  width: 100%;
+  padding: var(--spacing-xl) 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xxl);
+}
+
+.nav-item {
+  position: relative;
+  font-family: var(--font-secondary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.nav-item a {
+  color: #F5E6D3;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: inline-block;
+  position: relative;
+}
+
+.nav-item a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: all var(--transition-normal);
+  transform: translateX(-50%);
+}
+
+.nav-item a:hover::after {
+  width: 100%;
+}
+
+.nav-item a.disabled {
+  color: #898071;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.nav-item a:hover {
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Logo */
+.logo {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.logo:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+/* Animation Frame */
+.animation-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 55px;
+  z-index: 100;
+}
+
+.animation-wrapper {
+  position: relative;
+  width: 775px;
+  height: 775px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Coffee Cup */
+.coffee-cup {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Steam Particles */
+.steam-particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Coffee Beans */
+.coffee-bean {
+  position: absolute;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.coffee-bean:hover {
+  transform: scale(1.2) rotate(15deg);
+}
+
+/* Sphere Animation */
+.sphere-animation {
+  position: relative;
+  width: 580px;
+  height: 580px;
+}
+
+.sphere path {
+  fill: url(#sphereGradient);
+  stroke-width: 1px;
+  stroke: rgba(255, 140, 66, 0.35);
+  backface-visibility: hidden;
+}
+
+@media (min-width: 500px) {
+  .sphere path {
+    stroke-width: 0.4px;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: var(--spacing-xxl) 0;
+  position: relative;
+  z-index: 100;
+}
+
+.hero-title {
+  font-size: 4rem;
+  color: var(--color-cream);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: var(--spacing-lg);
+  animation: fadeInDown 1s ease-out;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xl);
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Features Section */
+.features-section {
+  padding: var(--spacing-xxl) 0;
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg);
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+}
+
+.feature-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  color: var(--color-brown);
+  margin-bottom: var(--spacing-md);
+}
+
+.feature-description {
+  color: var(--color-brown-light);
+  line-height: 1.6;
+}
+
+/* Floating Elements */
+.floating-coffee {
+  position: fixed;
+  font-size: 60px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .animation-wrapper {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .sphere-animation {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .navigation-menu {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .animation-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .sphere-animation {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .home-container::before {
+    font-size: 200px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+}
