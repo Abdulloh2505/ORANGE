@@ -23,19 +23,19 @@ import productController from "./controllers/product.controller";
 /*Product */
 routerAdmin.get(
   "/product/all",
-  //restaurantController.verifyRestaurant,
+  restaurantController.verifyRestaurant,
   productController.getAllProducts
 );
 routerAdmin.post(
   "/product/create",
  // restaurantController.verifyRestaurant,
 // makeUploader("products").array("productImages", 5),
-  //productController.createNewProduct
+  productController.createNewProduct
 );
 routerAdmin.post(
   "/product/:id",
  // restaurantController.verifyRestaurant,
- // productController.updateChosenProduct
+  productController.updateChosenProduct
 );
   
 
