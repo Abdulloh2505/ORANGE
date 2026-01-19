@@ -31,7 +31,18 @@
 .home-container::after {
   content: '☕ ☕ ☕ ☕';
   position: absolute;
-  font-size: 60px;
+  font-size: 40px;
+  color: rgba(217, 115, 38, 0.15);
+  white-space: nowrap;
+  animation: floatingBeans 15s linear infinite;
+  bottom: 10%;
+  left: -100%;
+  z-index: 1;
+}
+.home-container::after {
+  content: '☕ ☕ ☕ ☕';
+  position: absolute;
+  font-size: 40px;
   color: rgba(217, 115, 38, 0.15);
   white-space: nowrap;
   animation: floatingBeans 15s linear infinite;
@@ -349,4 +360,44 @@
   .hero-title {
     font-size: 2rem;
   }
+}
+body {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+#creature-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+#creature {
+  font-size: .2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150em;
+  height: 150em;
+  flex-wrap: wrap;
+}
+#creature div {
+  transform-style: preserve-3d;
+  position: relative;
+  width: 4em;
+  height: 4em;
+  margin: 3em;
+  border-radius: 2em;
+  will-change: transform;
+  mix-blend-mode: plus-lighter;
+  /*mix-blend-mode: screen;*/
+  /*mix-blend-mode: lighten;*/
+  background: var(--red);
+  
 }
