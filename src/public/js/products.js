@@ -94,4 +94,40 @@ if(!validImageType.includes(fileType)){
        reader.readAsDataURL(file);
     }
 } 
-}
+}// ========== CURSOR FOLLOWER EFFECT ==========
+console.log("Coffee cursor effects initializing...");
+
+$(document).ready(function() {
+    
+    // Create coffee cup cursor
+    const coffeeCup = $('<div class="cursor-follower">☕</div>');
+    $('body').append(coffeeCup);
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let cupX = 0;
+    let cupY = 0;
+    
+    // Track mouse
+    $(document).on('mousemove', function(e) {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    });
+    
+    // Smooth animation
+    function animate() {
+        cupX += (mouseX - cupX) * 0.15;
+        cupY += (mouseY - cupY) * 0.15;
+        
+        coffeeCup.css({
+            left: cupX + 'px',
+            top: cupY + 'px'
+        });
+        
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    console.log("✅ Coffee cursor loaded!");
+});

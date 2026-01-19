@@ -366,3 +366,23 @@ table th {
 .products-container .slider.round:before {
   border-radius: 50%;
 }
+/* ========== CURSOR FOLLOWER ========== */
+
+.products-container {
+    cursor: none; /* Default cursor yashirish */
+}
+
+.cursor-follower {
+    position: fixed;
+    font-size: 2.5rem;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 4px 12px rgba(255, 140, 66, 0.5));
+    transition: transform 0.1s ease;
+}
+
+/* Hover effekti */
+.products-container:active .cursor-follower {
+    transform: translate(-50%, -50%) scale(1.3);
+}
