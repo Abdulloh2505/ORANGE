@@ -33,6 +33,7 @@ export interface MemberInput {
 }
 
 export interface LoginInput {
+  [x: string]: unknown;
   memberNick: string;
   memberPassword: string;
 }
@@ -49,11 +50,11 @@ export interface MemberUpdateInput {
 }
 
 
-// export interface ExtendedRequest extends Request {
-//   member: Member;
-//   file: Express.Multer.File;
-//   files: Express.Multer.File[];
-// }
+export interface ExtendedRequest extends Request {
+  member: Member;
+  file: Express.Multer.File;
+  files: Express.Multer.File[];
+}
 
 
  export interface AdminRequest extends Request {

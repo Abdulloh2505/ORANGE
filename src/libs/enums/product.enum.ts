@@ -3,6 +3,7 @@
     NORMAL = "NORMAL",
     LARGE = "LARGE",
     SET = "SET",
+   XALALL = "XALALL",
  }
  export enum ProductVolume {
     HALF = 0.5,
