@@ -1,4 +1,4 @@
-console.log("Orange Café - Home page animations");
+
 
 // Fit element to parent container
 function fitElementToParent(el, padding) {

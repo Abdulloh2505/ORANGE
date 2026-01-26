@@ -1,5 +1,5 @@
 
-import { Request, Response } from "express";
+import { Request, Response, } from "express";
 import Errors, { HttpCode, Message } from "../libs/Error";
 import { T } from "../libs/types/common";
 import ProductService from "../models/Product.service";
@@ -167,5 +167,6 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
     else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
+
 
 export default productController;
