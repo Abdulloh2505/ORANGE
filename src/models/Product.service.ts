@@ -85,7 +85,7 @@ if(!existView) {
   productId,
    {$inc: { productViews: +1 }},
   { new: true }
-  )
+  )//full
   .exec();
 } 
   }
